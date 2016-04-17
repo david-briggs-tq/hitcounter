@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: hitcounter
-        image: kkonstan/hitcounter:v1.0
+        image: kkonstan/hitcounter:v1.1
         ports:
         - containerPort: 80
         env:
