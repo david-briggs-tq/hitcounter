@@ -9,7 +9,7 @@ who = os.getenv('WHO', 'World')
 @hitcounter.route('/')
 def hello():
     redis.incr('hits')
-    return 'Hello %s! I have been seen %s times.' % (who,redis.get('hits'))
+    return '<strong>Hello %s! I have been seen %s times.</strong>' % (who,redis.get('hits'))
 
 if __name__ == "__main__":
     hitcounter.run(host="0.0.0.0", port=80)
