@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hitcounter
+        tier: frontend
+    spec:
+      containers:
+      - name: hitcounter
+        image: kkonstan/hitcounter:v1.0
+        ports:
+        - containerPort: 80
+        env:
+        - name: WHO
+          valueFrom:
+            configMapKeyRef:
+              name: hitcounter
+              key: who
