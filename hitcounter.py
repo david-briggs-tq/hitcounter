@@ -3,7 +3,8 @@ from redis import Redis
 import os
 
 hitcounter = Flask(__name__)
-redis = Redis(host='redis', port=6379)
+host=os.getenv('REDIS_HOST', 'redis')
+redis = Redis(host=host, port=6379)
 who = os.getenv('WHO', 'World')
 
 @hitcounter.route('/')
